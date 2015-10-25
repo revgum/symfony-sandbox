@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+{% block title %}Update Site - {{ edit_form.vars.value.name }}{% endblock %}
+{% block body -%}
+	<a href="{{ path('sites') }}">List all Sites</a> |
+
+    <a href="{{ path('sites_new') }}">Add a new Site</a>
+    <h1>Update Site</h1>
+    {{ include("AppBundle:Site:_form.html.twig", { "form": edit_form }) }}
+{% endblock %}
+
+{% block styles %}
+	h3 { margin: 30px 0 0 0; }
+	.list-group { 
+		margin-top: 0; 
+		box-shadow: none;
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+	}
+	.list-group .list-group-item { margin-top: 20px; }   
+	.list-group .list-group-item.add-new {
+		border: none;
+		margin: 0;
+	}
+{% endblock %}

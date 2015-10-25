@@ -1,0 +1,113 @@
+{% extends '::base.html.twig' %}
+{% block title %}Browse All Sites{% endblock %}
+{% block body -%}
+
+    {{ include("AppBundle:Default:_filter.html.twig") }}
+    {{ include("AppBundle:Default:_stats.html.twig") }}
+    {{ include("AppBundle:Default:_pager.html.twig") }}
+
+    <div class="panel-group" id="accordion">
+        {% for site in sites %}
+            <div class="panel panel-primary">
+                <div class="panel-heading accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse_{{ site.id }}">
+                    <h3 class="panel-title">{{ site.name }}</h3>
+                </div>
+                <div id="collapse_{{ site.id }}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        {{ site.description }}
+                    </div>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Images</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for property in site.properties %}
+                                <tr>
+                                    <td>
+                                        {{ include("AppBundle:Property:_name_with_address_link.html.twig", { 'entity': property }) }}
+                                    </td>
+                                    <td>
+                                        {{ include("AppBundle:Property:_images_links.html.twig", { 'entity': property }) }}
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan='2'><em>This Site has no Properties.</em></td>
+                                </tr>                
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% else %}
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"></h3>
+                </div>
+                <div class="panel-body">
+                    {% if letter == '*' %}
+                        <em>There are no Sites in the database.</em>
+                    {% else %}
+                        <em>There are no Sites starting with '<b>{{ letter }}</b>'.</em>
+                    {% endif %}
+                </div>
+            </div>           
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block styles %}
+    .accordion-toggle:hover {
+        cursor: pointer;
+    }
+
+    .list-group-horizontal.letter-navigation {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+    }
+
+    .list-group-horizontal .list-group-item {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-left:-5px;
+        margin-right: 0;
+    }
+
+    .list-group-horizontal .list-group-item:first-child {
+        border-top-right-radius:0;
+        border-bottom-left-radius:4px;
+    }
+
+    .list-group-horizontal .list-group-item:last-child {
+        border-top-right-radius:4px;
+        border-bottom-left-radius:0;
+    }
+
+    ul.pager {
+        margin-bottom: 10px;
+    }
+
+    .row.stats .details {
+        line-height: 48px;
+    }
+
+    .row.stats .form-group {
+        margin-bottom: 0;
+    }
+
+    .row.stats .form-group label {
+        font-size: 10px;
+    }
+
+    .row.stats .form-group input {
+        padding: 5px;
+        height: 24px;
+        width: 48px;
+    }
+    .address { float: left; width: 100%; margin-top: 10px; font-size: normal; }
+    .address a { float: left; width: 100%; }
+{% endblock %}

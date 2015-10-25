@@ -1,0 +1,91 @@
+{{ form_start(form) }}
+	{{ form_row(form.name) }}
+	{{ form_row(form.description) }}
+    {{ form_widget(form.submit) }}
+    {{ include("AppBundle:Site:_delete_link.html.twig", { 'id': form.vars.value.id }) }}
+
+    {% if delete_form is defined %}
+        <h3>Properties</h3>
+    	<div class="list-group properties" data-prototype="{{ form_widget(form.properties.vars.prototype)|e }}">
+    		{% for p in form.properties %}
+    			<div class="list-group-item">
+                    {{ form_row(p.name) }}
+                    {{ form_row(p.address) }}
+                    <div style='display: none;'>
+                        {{ form_row(p.images) }}
+                    </div>
+                </div>
+    		{% endfor %}
+    	</div>
+
+        <script type="text/javascript">
+            var $collectionHolder;
+
+            // setup an "Add New Property" link
+            var $addPropertyLink = $('<a href="#" class="add_property_link">Add New Property</a>');
+            var $newLinkDiv = $('<div class="add-new list-group-item"></div>').append($addPropertyLink);
+
+            jQuery(document).ready(function() {
+                // Get the div that holds the collection of properties
+                $collectionHolder = $('div.properties');
+
+                // add the "Add New Property" anchor and div to the properties collection
+                $collectionHolder.prepend($newLinkDiv);
+
+                // count the current form inputs we have (e.g. 2), use that as the new
+                // index when inserting a new item (e.g. 2)
+                $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+                $collectionHolder.find('div.list-group-item:not(".add-new")').each(function(){
+                    addPropertyDeleteLink($(this));
+                });
+
+                $addPropertyLink.on('click', function(e) {
+                    // prevent the link from creating a "#" on the URL
+                    e.preventDefault();
+
+                    // add a new property form (see next code block)
+                    addPropertyForm($collectionHolder, $newLinkDiv);
+                });
+            });
+
+            function addPropertyForm($collectionHolder, $newLinkDiv) {
+                // Get the data-prototype explained earlier
+                var prototype = $collectionHolder.data('prototype');
+
+                // get the new index
+                var index = $collectionHolder.data('index');
+
+                // Replace '__name__' in the prototype's HTML to
+                // instead be a number based on how many items we have
+                var newForm = prototype.replace(/__name__/g, index);
+
+                // increase the index with one for the next item
+                $collectionHolder.data('index', index + 1);
+
+                // Display the form in the page in an div, before the "Add a property" link div
+                var $newFormDiv = $('<div></div>').append(newForm);
+                $newFormDiv.addClass('list-group-item');
+                $newLinkDiv.after($newFormDiv);
+                addPropertyDeleteLink($newFormDiv);
+            }
+
+            function addPropertyDeleteLink($propertyFormDiv) {
+                var $removeFormA = $('<a href="#">Delete Property</a>');
+                $propertyFormDiv.append($removeFormA);
+
+                $removeFormA.on('click', function(e) {
+                    // prevent the link from creating a "#" on the URL
+                    e.preventDefault();
+
+                    // remove the div for the form
+                    $propertyFormDiv.remove();
+                });
+            }
+        </script>
+    {% else %}
+        <div style="display: none;">
+            {{ form_row(form.properties) }}
+        </div>
+    {% endif %}
+{{ form_end(form) }}

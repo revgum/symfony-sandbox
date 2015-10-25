@@ -1,0 +1,16 @@
+{% if pages_count > 1 %}
+    <nav>
+      <ul class="pager">
+        <li class="previous {{ page == 1 ? 'disabled' }}">
+            <a href="{{ path('browse', { 'letter': letter, 'page': page - 1, 'per_page': per_page }) }}">
+                <span aria-hidden="true">&larr;</span> Previous
+            </a>
+        </li>
+        <li class="next {{ page == pages_count ? 'disabled' }}">
+            <a href="{{ path('browse', { 'letter': letter, 'page': page + 1, 'per_page': per_page }) }}">
+                Next <span aria-hidden="true">&rarr;</span>
+            </a>
+        </li>
+      </ul>
+    </nav>
+{% endif %}

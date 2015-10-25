@@ -1,0 +1,83 @@
+{% extends '::base.html.twig' %}
+{% block title %}View Property - {{ entity.name }}{% endblock %}
+{% block body -%}
+    <a href="{{ path('properties') }}">List all Properties</a> |
+    <a href="{{ path('properties_new') }}">Add a new Property</a>
+    <h1>Property Details</h1>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">ID</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{ entity.id }}</p>
+            </div>
+        </div>   
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Property</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">
+                    {{ include("AppBundle:Property:_name_with_address_link.html.twig") }}
+                </p>
+            </div>
+        </div>   
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Site</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">
+                    {% if entity.site %}
+                        <a href="{{ path('sites_show', { 'id': entity.site.id }) }}">
+                            {{ entity.site.name }}
+                        </a>
+                    {% else %}
+                        <em>Site not set.</em>
+                    {% endif %}
+                </p>
+            </div>
+        </div>    
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="list-group list-group-horizontal">
+                    <div class="list-group-item">
+                        <a href="{{ path('properties_edit', { 'id': entity.id }) }}">
+                            Edit
+                        </a>
+                    </div>
+                    <div class="list-group-item">
+                        {{ include("AppBundle:Property:_delete_link.html.twig", { 'id': entity.id }) }}
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Images</label>
+            <div class="col-sm-10">
+                <div class="list-group">
+                    {{ include("AppBundle:Property:_images_links.html.twig") }}
+                </div>
+            </div>
+        </div>   
+    </div>
+{% endblock %}
+
+{% block styles %}
+    .list-group-horizontal, .list-group {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+    }
+
+   .list-group-horizontal .list-group-item,
+   .list-group .list-group-item {
+        border: none;
+    }
+
+    .list-group-horizontal .list-group-item {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-left:-5px;
+        margin-right: 0;
+        border: none;
+    }
+    .address { float: left; width: 100%; margin-top: 10px; }
+    .address a { float: left; width: 100%; }
+    .name { font-size: 1.25em; }    
+{% endblock %}

@@ -1,0 +1,46 @@
+{% if pages_count > 1 %}
+	<div class='row stats' style='padding-bottom: 10px;'>
+		<div class='col-xs-4 col-xs-offset-4 text-center details'>
+			{{ total }} found. Viewing page {{ page }} of {{ pages_count }}.
+		</div>
+		<div class='col-xs-1 col-xs-offset-3'>
+			<div class="form-group">
+				<label for="per_page">Per Page</label>
+				<input 
+					type="text" 
+					class="form-control" 
+					id="per_page" 
+					placeholder="50" 
+					value="{{ per_page }}" 
+					onchange="setPerPage(this)">
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function setPerPage(el) {
+			var href = paramReplace('page', window.location.href, 1);
+			window.location.href = paramReplace('per_page', href, el.value);
+		}
+
+		// from shanecp : https://gist.github.com/stinoga/8101816
+		function paramReplace(name, string, value) {
+	        // Find the param with regex
+	        // Grab the first character in the returned string (should be ? or &)
+	        // Replace our href string with our new value, passing on the name and delimeter
+
+	        var re = new RegExp("[\\?&]" + name + "=([^&#]*)");
+	        var matches = re.exec(string);
+	        var newString;
+
+	        if (matches === null) {
+	            // if there are no params, append the parameter
+	            newString = string + '?' + name + '=' + value;
+	        } else {
+	            var delimeter = matches[0].charAt(0);
+	            newString = string.replace(re, delimeter + name + "=" + value);
+	        }
+	        return newString;
+	    }
+	</script>
+{% endif %}

@@ -1,0 +1,460 @@
+PHPUnit 4.8.15 by Sebastian Bergmann and contributors.
+
+
+Starting test 'AppBundle\Tests\Controller\SiteControllerTest::testCompleteScenario'.
+F
+
+Time: 391 ms, Memory: 35.50Mb
+
+There was 1 failure:
+
+1) AppBundle\Tests\Controller\SiteControllerTest::testCompleteScenario
+Failed asserting that '<!-- app/Resources/views/base.html.twig -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>List All Sites</title>
+                <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <script src="/js/vendor/jquery-1.11.13.js"></script>
+        <script src="/js/vendor/bootstrap.js"></script>
+        <link rel="stylesheet" href="/css/vendor/bootstrap.css" />
+        <link rel="stylesheet" href="/css/vendor/bootstrap-theme.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="/browse">Browse All Sites</a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/sites/">Sites</a>
+                                </li>
+                                <li>
+                                    <a href="/properties/">Properties</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>                    
+                </div><!-- /.navbar-collapse -->    
+            </div><!-- /.container-fluid -->
+        </nav>
+
+
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class='col-xs-12'>
+                     
+                    <a href="/sites/new">Add a new Site</a>
+    <h1>Listing all Sites</h1>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-responsive list-all">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                                    <tr>
+                        <td><a href="/sites/1">A Test Site</a></td>
+                        <td>Here is not a test description.Here is not a test description.Here is not a test description.Here is not a test description.Here is not a test description.Here is not a test description.Here is not a test description.</td>
+                        <td>
+                            <a href="/sites/1/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/48">aa</a></td>
+                        <td>aa</td>
+                        <td>
+                            <a href="/sites/48/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/2">B Test</a></td>
+                        <td>here is not a description</td>
+                        <td>
+                            <a href="/sites/2/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/6">C Test</a></td>
+                        <td>tt</td>
+                        <td>
+                            <a href="/sites/6/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/68">Test Foo</a></td>
+                        <td>Test Bar</td>
+                        <td>
+                            <a href="/sites/68/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/19">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/19/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/20">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/20/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/21">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/21/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/22">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/22/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/23">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/23/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/24">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/24/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/25">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/25/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/26">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/26/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/27">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/27/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/28">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/28/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/29">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/29/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/30">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/30/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/31">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/31/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/32">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/32/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/33">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/33/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/34">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/34/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/35">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/35/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/36">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/36/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/37">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/37/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/38">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/38/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/39">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/39/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/41">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/41/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/42">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/42/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/43">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/43/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/44">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/44/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/45">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/45/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/46">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/46/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/47">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/47/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/49">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/49/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/50">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/50/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/51">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/51/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/52">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/52/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/53">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/53/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/54">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/54/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/55">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/55/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/56">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/56/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/57">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/57/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/58">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/58/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/59">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/59/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/60">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/60/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/61">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/61/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/62">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/62/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/63">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/63/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/64">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/64/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/65">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/65/edit">edit</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td><a href="/sites/66">Test Name</a></td>
+                        <td>Test Description</td>
+                        <td>
+                            <a href="/sites/66/edit">edit</a>
+                        </td>
+                    </tr>
+                            </tbody>
+        </table>
+    </div>
+                </div>
+            </div>
+        </div>
+                <style type="text/css">
+            body { padding-top: 70px; }
+            table.table.list-all { margin-top: 20px; } 
+            div.alert { font-weight: bold; }
+
+                /*Responsive table hack recommended by bootstrap*/
+    @-moz-document url-prefix() {
+      fieldset { display: table-cell; }
+    }
+        </style>
+    </body>
+</html>
+' does not match PCRE pattern "/.*Test Foo.*/".
+
+/home/revgum/test_symfony/src/AppBundle/Tests/Controller/SiteControllerTest.php:38
+
+FAILURES!
+Tests: 1, Assertions: 3, Failures: 1.

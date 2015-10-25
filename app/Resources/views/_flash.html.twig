@@ -1,0 +1,24 @@
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert-info alert text-center" role="alert">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="alert-success alert text-center" role="alert">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+{% for flashMessage in app.session.flashbag.get('danger') %}
+    <div class="alert-danger alert text-center" role="alert">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+   		setTimeout(function(){
+   			$('.alert-info').slideToggle();
+   			$('.alert-success').slideToggle();
+   		}, 5500);
+    });
+</script>

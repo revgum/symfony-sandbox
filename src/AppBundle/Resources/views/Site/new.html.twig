@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+{% block title %}Create a Site{% endblock %}
+{% block body -%}
+    <a href="{{ path('sites') }}">List All Sites</a>
+    <h1>Create a Site</h1>
+    {{ include("AppBundle:Site:_form.html.twig") }}
+{% endblock %}
+
+{% block styles %}
+	h3 { margin: 30px 0 0 0; }
+	.list-group { 
+		margin-top: 0; 
+		box-shadow: none;
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+	}
+	.list-group .list-group-item { margin-top: 20px; }
+	.list-group .list-group-item .form-group:nth-child(2) { display: none; }    
+	.list-group .list-group-item.add-new {
+		border: none;
+		margin: 0;
+	}
+{% endblock %}

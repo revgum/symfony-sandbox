@@ -1,0 +1,47 @@
+imports:
+    - { resource: config.yml }
+
+framework:
+    session:
+        handler_id: session.handler.native_file
+        save_path: "%kernel.root_dir%/sessions/prod"
+
+#    validation:
+#        cache: validator.mapping.cache.apc
+#    serializer:
+#        cache: serializer.mapping.cache.apc
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            action_level: error
+            handler:      nested
+        nested:
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+        console:
+            type:  console
+
+assetic:
+    use_controller: true
+
+# Vich FileUploader Configuration
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        property_image:
+            uri_prefix:         /symfony/images/properties
+            upload_destination: %kernel.root_dir%/../web/images/properties
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+

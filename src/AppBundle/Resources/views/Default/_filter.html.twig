@@ -1,0 +1,10 @@
+<div class="row" style="padding-top:10px">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <div class="list-group list-group-horizontal letter-navigation">
+            <a href="{{ path('browse', { 'letter': 'ALL' }) }}" class="list-group-item {{ letter == 'ALL' ? 'active' }}">All</a>
+            {% for l in 'a'|upper..'z'|upper %}
+                <a href="{{ path('browse', { 'letter': l }) }}" class="list-group-item {{ l == letter ? 'active' }}">{{ l }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>

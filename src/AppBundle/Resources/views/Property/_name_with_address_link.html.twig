@@ -1,0 +1,11 @@
+{% if render_name_link is defined %}
+	<a class='name' href="{{ path('properties_show', { 'id': entity.id }) }}">{{ entity.name }}</a>
+{% else %}
+	{{ entity.name }}
+{% endif %}
+{% if entity.address %}
+    <span class='address'>
+        <span>{{ entity.address }}</span>
+        <a href='http://maps.google.com/?q={{ entity.address }}' target="_blank">Google Map</a>
+    </span>
+{% endif %}

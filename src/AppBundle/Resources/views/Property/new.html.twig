@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+{% block title %}Create a Property{% endblock %}
+{% block body -%}
+    <a href="{{ path('properties') }}">List all Properties</a>
+    <h1>Create a Property</h1>
+    {{ include("AppBundle:Property:_form.html.twig") }}
+{% endblock %}
+
+{% block styles %}
+	h3 { margin: 30px 0 0 0; }
+	.list-group { 
+		margin-top: 0; 
+		box-shadow: none;
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+	}
+	.list-group .list-group-item { margin-top: 20px; }
+	.list-group .list-group-item .form-group:nth-child(2) { display: none; }    
+	.list-group .list-group-item.add-new {
+		border: none;
+		margin: 0;
+	}
+	.list-group .list-group-item .form-group .vich-image a img { max-width: 100px; }
+{% endblock %}

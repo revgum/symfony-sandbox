@@ -1,0 +1,83 @@
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.address) }}
+    {{ form_row(form.site) }}
+    {{ form_widget(form.submit) }}
+    {{ include("AppBundle:Property:_delete_link.html.twig", { 'id': form.vars.value.id }) }}
+
+    <h3>Images</h3>
+    <div class="list-group images" data-prototype="{{ form_widget(form.images.vars.prototype)|e }}">
+        {% for i in form.images %}
+            <div class="list-group-item">
+                {{ form_row(i.imageFile) }}
+            </div>
+        {% endfor %}
+    </div>
+{{ form_end(form) }}
+
+
+<script type="text/javascript">
+    var $collectionHolder;
+
+    // setup an "Add New Image" link
+    var $addImageLink = $('<a href="#" class="add_image_link">Add New Image</a>');
+    var $newLinkDiv = $('<div class="list-group-item add-new"></div>').append($addImageLink);
+
+    jQuery(document).ready(function() {
+        // Get the div that holds the collection of images
+        $collectionHolder = $('div.images');
+
+        // add the "Add New Image" anchor and div to the images div
+        $collectionHolder.prepend($newLinkDiv);
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+        $collectionHolder.find('div.list-group-item:not(".add-new")').each(function(){
+            addImageDeleteLink($(this));
+        });
+
+        $addImageLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new image form (see next code block)
+            addImageForm($collectionHolder, $newLinkDiv);
+        });
+    });
+
+    function addImageForm($collectionHolder, $newLinkDiv) {
+        // Get the data-prototype explained earlier
+        var prototype = $collectionHolder.data('prototype');
+
+        // get the new index
+        var index = $collectionHolder.data('index');
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+
+        // increase the index with one for the next item
+        $collectionHolder.data('index', index + 1);
+
+        // Display the form in the page in an div, before the "Add a image" link div
+        var $newFormDiv = $('<div></div>').append(newForm);
+        $newFormDiv.addClass('list-group-item');        
+        $newLinkDiv.after($newFormDiv);
+        addImageDeleteLink($newFormDiv);
+    }
+
+    function addImageDeleteLink($imageFormDiv) {
+        var $removeFormA = $('<a href="#">Delete Image</a>');
+        $imageFormDiv.append($removeFormA);
+
+        $removeFormA.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // remove the div for the form
+            $imageFormDiv.remove();
+        });
+    }
+</script>   

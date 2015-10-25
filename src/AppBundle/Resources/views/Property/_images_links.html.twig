@@ -1,0 +1,7 @@
+{% for image in entity.images %}
+    <a href="{{ vich_uploader_asset(image, 'imageFile') }}" target="_blank">
+        <img src="{{ vich_uploader_asset(image, 'imageFile') }}" alt="{{ image.imageName }}" style="max-width: 100px;" />
+    </a>
+{% else %}
+    <em>This Property has no Images.</em>
+{% endfor %}
